@@ -4,7 +4,7 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 
 const DataScreen = ({ navigation }) => {
   return (
-    <View style={styless.container}>
+    <View style={styles.container}>
       <Text>Data Screen</Text>
       <Button
         title="Go to Data"
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeScreen;
+export default DataScreen;

@@ -4,7 +4,7 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View style={styless.container}>
+    <View style={styles.container}>
       <Text>Home Screen</Text>
       <Button
         title="Go to Profile"

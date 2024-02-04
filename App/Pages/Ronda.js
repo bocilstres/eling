@@ -5,21 +5,10 @@ import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faTriangleExclamation,faClipboardList, faListAlt, faBullhorn, faBell, faUser, faTableCells, faTableList, faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
-import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
 
 const HomeScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
-
-  function HomeScreen({navigation}) {
-    return(
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text
-          onPress={() => alert('This is the "Home" screen.')}
-          style={{ fontSize: 26, fontWeight: 'bold' }}> Home Screen </Text>
-      </View>
-    );
-  }
   const handleLogout = () => {
     // Tambahkan logika logout sesuai kebutuhan Anda
     console.log('Logout pressed');
@@ -46,6 +35,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
+      <Bottom />
       <View style={styles.row}>
       
         <Image style={styles.image} source={require('./../Assets/Images/k.png')}/>
@@ -92,7 +82,7 @@ const HomeScreen = ({ navigation }) => {
               iconPosition="top"
             />
           </View>
-     <Bottom />
+     
         </View>
         <Modal
         isVisible={isModalVisible}
@@ -220,3 +210,4 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+

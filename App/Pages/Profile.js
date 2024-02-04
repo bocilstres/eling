@@ -5,6 +5,7 @@ import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faTriangleExclamation,faClipboardList, faListAlt, faBullhorn, faBell, faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
+import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
 
 const ProfileScreen= ({ navigation }) => {
@@ -14,19 +15,11 @@ const ProfileScreen= ({ navigation }) => {
     console.log('Logout pressed'); 
     navigation.navigate('Login');
   };
-  const toggleBack = ()=> {
-    console.log('Tombol Kembali Ke Home Ditekan');
-    navigation.navigate('Home');
-  }
 
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
       <View style={styles.row}>
-
-      <TouchableOpacity onPress={toggleBack}>
-        <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
-      </TouchableOpacity>
         <Image style={styles.image} source={require('./../Assets/Images/k.png')}/>
       </View>
       <View style={styles.containerDashboard}>  
@@ -34,7 +27,10 @@ const ProfileScreen= ({ navigation }) => {
       <Text style={styles.bio}>3204405202050002</Text>
       <Text style={styles.NIK}>Nama Lengkap :</Text>
       <Text style={styles.bio}>Megawati Soekarno Poetri</Text>
+      <Text style={styles.NIK}>Nomor Telepon :</Text>
+      <Text style={styles.bio}>08123456789</Text>
       </View>
+      <Bottom/>
     </View>
   );
 };
@@ -58,8 +54,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     marginBottom:30,
     alignItems: 'center',
-    marginRight: 155,
-    marginLeft: 1,
   },
   containerDashboard:{
     alignItems:'center',
@@ -67,13 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.white,
     borderTopLeftRadius:30,
     borderTopRightRadius:30,
-  },
-  BackIcon:{
-    color:Colors.white,
-    marginTop: 5,
-    marginBottom: 90,
-    marginLeft: 1,
-    marginRight: 100,
+    height: 607,
   },
   NIK:{
     flexDirection: 'row',
