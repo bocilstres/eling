@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, StyleSheet,Dimensions } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faList, faPerson, faSignOutAlt, } from '@fortawesome/free-solid-svg-icons';
 import Colors from '../Shared/Colors';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -25,20 +25,22 @@ export default function Bottom() {
       <Tab.Navigator
       initialRouteName={HomeName}
       screenOptions={({ route }) => ({
+
+        
         
         tabBarIcon: ({focused, color, size}) => {
-          let iconName;
+          let IconName;
           let rn = route.name;
 
           if (rn === HomeName) {
-            iconName = focused ? 'Home' : 'home-outline'
+            IconName = faHome ? 'Home' : 'home-outline'
           } else if (rn === ProfileName) {
-            iconName = focused ? 'Profile' : 'profile-outline';
+            IconName = faPerson ? 'Profile' : 'profile-outline';
           } else if (rn === DataName) {
-            iconName = focused ? 'Data' : 'data-outline';
+            IconName = faList ? 'Data' : 'data-outline';
           }
 
-          return <FontAwesomeIcon name={iconName} size={size} color={color}/>
+          return <FontAwesomeIcon name={faPerson} size={size} color={color}/>
           
         },
       })}

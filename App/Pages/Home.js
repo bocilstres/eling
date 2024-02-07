@@ -47,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
       <View style={styles.row}>
-      
+        <Bottom />
         <Image style={styles.image} source={require('./../Assets/Images/k.png')}/>
         <Text style={styles.username}>Hi Username</Text>
       </View>
@@ -111,12 +111,13 @@ const HomeScreen = ({ navigation }) => {
             <Text style={{fontSize:25}}>BATAL</Text>
           </TouchableOpacity>
         </View>
+        <Bottom />
         </View>
 
       </Modal>
         
       </View>
-      
+      <Bottom />
     </View>
   );
 };
