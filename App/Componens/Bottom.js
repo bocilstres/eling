@@ -61,14 +61,15 @@ export default function Bottom() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 19,
-    width: 500,
-    height: 90,
+    width: "110%",
+    height: "10%",
     backgroundColor: Colors.white, 
   },
 });
