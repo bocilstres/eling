@@ -47,8 +47,7 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
       <View style={styles.row}>
-        <Bottom />
-        <Image style={styles.image} source={require('./../Assets/Images/k.png')}/>
+     <Image style={styles.image} source={require('./../Assets/Images/k.png')}/>
         <Text style={styles.username}>Hi Username</Text>
       </View>
       <View style={styles.containerDashboard}>  
@@ -92,7 +91,7 @@ const HomeScreen = ({ navigation }) => {
               iconPosition="top"
             />
           </View>
-     <Bottom />
+          <Bottom/>
         </View>
         <Modal
         isVisible={isModalVisible}

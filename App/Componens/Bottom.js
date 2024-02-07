@@ -21,6 +21,7 @@ const Tab = createBottomTabNavigator();
 
 export default function Bottom() {
   return (
+    <View style={styles.container}>
     <NavigationContainer independent={true}>
       <Tab.Navigator
         initialRouteName={HomeName}
@@ -57,5 +58,17 @@ export default function Bottom() {
         <Tab.Screen name={ProfileName} component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
+    </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 19,
+    width: 500,
+    height: 90,
+    backgroundColor: Colors.white, 
+  },
+});
