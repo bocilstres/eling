@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.white,
     borderTopLeftRadius:30,
     borderTopRightRadius:30,
-    height: 606,
+    height: 591,
   },
   NIK:{
     flexDirection: 'row',

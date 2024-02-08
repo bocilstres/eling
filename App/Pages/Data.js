@@ -8,6 +8,7 @@ import AppHeader from '../Componens/AppHeader';
 import Colors from '../Shared/Colors'
 import { colors } from 'react-native-elements';
 import Dropdown from '../Componens/Dropdown';
+import Bottom from '../Componens/Bottom';
 
 const DataScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -43,8 +44,20 @@ const DataScreen = ({ navigation }) => {
       <Text style={styles.datatxt}> DATA WARGA </Text>
       </View>  
       <View style={styles.containerData}>
+      <View style={styles.Menu}>
+          <View style={styles.Menurow}>
+            <Button 
+              title="Data Warga"
+              icon={<FontAwesomeIcon icon={faListAlt}  color={Colors.darkBlue} size={20} />} 
+              buttonStyle= {styles.buttonMenu}
+              titleStyle={styles.buttonText}
+              iconPosition="center"
+            />
+            </View>
+            </View>
 
       </View>
+      <Bottom />
     </View>
   );
 };
@@ -65,9 +78,19 @@ const styles = StyleSheet.create({
     color:Colors.white,
     backgroundColor:Colors.white,
     flexDirection: 'row',
-    marginTop: 3,
+    marginTop: 1,
     marginBottom:1,
     justifyContent: 'space-between',
+  },
+  containerData:{
+    alignItems:'center',
+    color:Colors.white,
+    backgroundColor:Colors.white,
+    flexDirection: 'row',
+    marginTop: 1,
+    marginBottom:1,
+    justifyContent: 'space-between',
+    height:500,
   },
   BackIcon:{
     color:Colors.navy,

@@ -31,14 +31,14 @@ const HomeScreen = ({ navigation }) => {
     setModalVisible(!isModalVisible);
   };
 
-  
+
 
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
       <View style={styles.containerDashboard}>  
       <View style={styles.row}>
-     <Image style={styles.image} source={require('./../Assets/Images/hello.jpeg')}/>
+      <Image style={styles.image} source={require('./../Assets/Images/hello.jpeg')}/>
         <Text style={styles.username}>Hi Username</Text>
       </View>
       <TouchableOpacity onPress={toggleModal} style={styles.button}>
@@ -83,12 +83,14 @@ const HomeScreen = ({ navigation }) => {
           </View>
           <Bottom/>
         </View>
+
         <Modal
         isVisible={isModalVisible}
         animationIn="slideInUp"
         animationOut="slideOutDown"
         backdropOpacity={0.5} 
         >
+
         <View style={styles.modalContent}>
         <FontAwesomeIcon style={{marginTop:20}} icon={faTriangleExclamation} size={150} color='#FFD43B' />
         <Text style={styles.textmodal}>Anda Yakin?</Text>
@@ -100,7 +102,6 @@ const HomeScreen = ({ navigation }) => {
             <Text style={{fontSize:25}}>BATAL</Text>
           </TouchableOpacity>
         </View>
-        <Bottom />
         </View>
 
       </Modal>
@@ -110,6 +111,7 @@ const HomeScreen = ({ navigation }) => {
     </View>
   );
 };
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
@@ -170,12 +172,11 @@ const styles = StyleSheet.create({
     
   },
   row:{
-    alignItems:'center',
     justifyContent:'space-around',
     backgroundColor: Colors.white,
     marginTop: 20,
     width: 360,
-    height:windowHeight* 0.20,
+    height:windowHeight* 0.19,
     borderRadius: 20,
     marginBottom: 60,
   },
@@ -184,7 +185,8 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     resizeMode: 'contain',
-    marginBottom:10,
+    marginTop:57,
+    left: 200,
   },
   textdarurat:{
     color:Colors.white, 
@@ -195,13 +197,15 @@ const styles = StyleSheet.create({
   username:{
     fontSize:20,
     color:Colors.darkBlue,
-    marginBottom:30,
+    marginBottom: 120,
+    marginLeft: 40,
+    fontWeight: 'normal',
   },
   containerDashboard:{
     alignItems:'center',
     color:Colors.white,
     backgroundColor:Colors.wet, 
-    height: 759,
+    height: 744,
     windowWidth,
   },
   button: {
