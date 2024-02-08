@@ -10,16 +10,6 @@ import Colors from '../Shared/Colors'
 
 const HomeScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
-
-  function HomeScreen({navigation}) {
-    return(
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text
-          onPress={() => alert('This is the "Home" screen.')}
-          style={{ fontSize: 26, fontWeight: 'bold' }}> Home Screen </Text>
-      </View>
-    );
-  }
   const handleLogout = () => {
     // Tambahkan logika logout sesuai kebutuhan Anda
     console.log('Logout pressed');
@@ -46,49 +36,49 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
+      <View style={styles.containerDashboard}>  
       <View style={styles.row}>
-     <Image style={styles.image} source={require('./../Assets/Images/k.png')}/>
+     <Image style={styles.image} source={require('./../Assets/Images/hello.jpeg')}/>
         <Text style={styles.username}>Hi Username</Text>
       </View>
-      <View style={styles.containerDashboard}>  
       <TouchableOpacity onPress={toggleModal} style={styles.button}>
         <FontAwesomeIcon style={{ marginTop: 10 }} icon={faTriangleExclamation} size={70} color='#FFD43B' />
+        <Text style={styles.textdarurat}>Tombol Darurat</Text>
       </TouchableOpacity>
 
-        <Text style={styles.textdarurat}>Tombol Darurat</Text>
         <View style={styles.Menu}>
           <View style={styles.Menurow}>
             <Button 
               title="Data Warga"
               onPress={handleData}
-              icon={<FontAwesomeIcon icon={faListAlt} size={70} />} 
+              icon={<FontAwesomeIcon icon={faListAlt}  color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="top"
+              iconPosition="left"
             />
             <Button 
               title="Pengumuman"
-              icon={<FontAwesomeIcon icon={faBullhorn} size={70} />} 
+              icon={<FontAwesomeIcon icon={faBullhorn} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="top"
+              iconPosition="left"
             />
           </View>
           <View style={styles.Menurow}>
             <Button 
               title="Ronda"
-              icon={<FontAwesomeIcon icon={faShieldHalved} size={70} />} 
+              icon={<FontAwesomeIcon icon={faShieldHalved} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="top"
+              iconPosition="left"
             />
             <Button 
               title="Go to Profile"
               onPress={handleProfile}
-              icon={<FontAwesomeIcon icon={faUser} size={70} />} 
+              icon={<FontAwesomeIcon icon={faUser} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="top"
+              iconPosition="left"
             />
           </View>
           <Bottom/>
@@ -154,17 +144,17 @@ const styles = StyleSheet.create({
 
   },
   buttonText:{
-    marginTop:8,
-    color:Colors.black,
+    color:Colors.darkBlue,
     fontWeight: 'regular',
     
   },
   buttonMenu:{
     margin:10,
     width:windowWidth * 0.4,
-    height:windowHeight * 0.2,
+    height:windowHeight * 0.1,
     borderRadius:20,
-    backgroundColor:'#F5F7F8',
+    backgroundColor: Colors.lightBlue,  
+    justifyContent: 'space-around',
   },
   Menu:{
     alignItems:'center',
@@ -181,40 +171,46 @@ const styles = StyleSheet.create({
   },
   row:{
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'space-around',
+    backgroundColor: Colors.white,
+    marginTop: 20,
+    width: 360,
+    height:windowHeight* 0.20,
+    borderRadius: 20,
+    marginBottom: 60,
   },
   image:{
     marginTop:30,
-    width: windowWidth * 0.21,
-    height:windowHeight* 0.10,
+    width: 150,
+    height: 150,
     resizeMode: 'contain',
-    marginBottom:20,
+    marginBottom:10,
   },
   textdarurat:{
-    color:Colors.red, 
+    color:Colors.white, 
     fontSize:15,
     marginBottom:30,
+    marginTop: 3, 
   },
   username:{
     fontSize:20,
-    color:Colors.white,
+    color:Colors.darkBlue,
     marginBottom:30,
   },
   containerDashboard:{
     alignItems:'center',
     color:Colors.white,
-    backgroundColor:Colors.white, 
-    borderTopLeftRadius:50,
-    borderTopRightRadius:30
+    backgroundColor:Colors.wet, 
+    height: 759,
+    windowWidth,
   },
   button: {
     alignItems:'center',
     backgroundColor: Colors.red,
-    width: windowWidth * 0.9, 
-    height:windowHeight* 0.11,
+    width: 360, 
+    height:windowHeight* 0.13,
     borderRadius: 20,
-    marginTop:15,
-    marginBottom: 10, 
+    marginBottom: 20, 
   },
 
 });

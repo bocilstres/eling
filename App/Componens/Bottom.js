@@ -21,30 +21,29 @@ const Tab = createBottomTabNavigator();
 
 export default function Bottom() {
   return (
-    <View style={styles.container}>
     <NavigationContainer independent={true}>
       <Tab.Navigator
         initialRouteName={HomeName}
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+          tabBarIcon: ({ focused, size, color }) => {
             let iconName;
 
             if (route.name === HomeName) {
               iconName = focused ? faHome : faHome;
-            } else if (route.name === DataName) {
+            } else if (route.name     === DataName) {
               iconName = focused ? faListSquares : faListSquares;
             } else if (route.name === ProfileName) {
               iconName = focused ? faUser : faUser;
             }
 
-            return <FontAwesomeIcon icon={iconName} size={30} color={color} />;
+            return <FontAwesomeIcon icon={iconName} size={20} color={color} />;
           },
         })}
         tabBarOptions={{
           tabBarInactiveTintColor: 'grey',
           tabBarLabelStyle: {
             paddingBottom: 10,
-            fontSize: 16,
+            fontSize:30,
           },
           tabBarStyle: [
             {
@@ -58,18 +57,6 @@ export default function Bottom() {
         <Tab.Screen name={ProfileName} component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
-    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 19,
-    width: "110%",
-    height: "10%",
-    backgroundColor: Colors.white, 
-  },
-});

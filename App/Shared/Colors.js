@@ -1,6 +1,6 @@
 export default{
     primary : '#0C7DE4',
-    darkBlue : '#2405A1',
+    darkBlue : '#526D82',
     white : '#fff',
     lightGray :'#D9D9D9',
     gray: '#9c9c9c',
@@ -8,5 +8,8 @@ export default{
     black:'#000000',
     red:'#FF0000',
     navy: '#0F2167',
-    lightBlue: '#EEF5FF',
+    lightBlue: '#C9D7DD',
+    bluw: '#EEE0C9',
+    wet: '#F1F6F9',
+    gtw: '#F6F4EB',
 }
