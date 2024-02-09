@@ -1,6 +1,6 @@
 import React , { useState }from 'react';
 import { Button } from '@rneui/themed';
-import { View, Text, StyleSheet, Image,Dimensions,TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image,Dimensions,TouchableOpacity, bordercolor } from 'react-native';
 import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faTriangleExclamation,faClipboardList, faListAlt, faBullhorn, faBell, faUser, faTableCells, faTableList, faShieldHalved } from '@fortawesome/free-solid-svg-icons';
@@ -36,11 +36,12 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
-      <View style={styles.containerDashboard}>  
+      <View style={styles.containerDashboard} >  
       <View style={styles.row}>
       <Image style={styles.image} source={require('./../Assets/Images/hello.jpeg')}/>
         <Text style={styles.username}>Hi Username</Text>
       </View>
+
       <TouchableOpacity onPress={toggleModal} style={styles.button}>
         <FontAwesomeIcon style={{ marginTop: 10 }} icon={faTriangleExclamation} size={70} color='#FFD43B' />
         <Text style={styles.textdarurat}>Tombol Darurat</Text>
@@ -188,6 +189,9 @@ const styles = StyleSheet.create({
     marginTop:57,
     left: 200,
   },
+  bg:{
+    
+  },
   textdarurat:{
     color:Colors.white, 
     fontSize:15,
@@ -206,7 +210,6 @@ const styles = StyleSheet.create({
     color:Colors.white,
     backgroundColor:Colors.wet, 
     height: 744,
-    windowWidth,
   },
   button: {
     alignItems:'center',
