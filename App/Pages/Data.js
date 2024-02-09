@@ -1,9 +1,9 @@
 import React , { useState }from 'react';
 import { Button } from '@rneui/themed';
-import { View, Text, StyleSheet, Image,Dimensions,TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image,Dimensions,TouchableOpacity, ImageBackground } from 'react-native';
 import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faTriangleExclamation,faClipboardList, faListAlt, faBullhorn, faBell, faUser, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faShieldCat, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
 import Colors from '../Shared/Colors'
 import { colors } from 'react-native-elements';
@@ -21,42 +21,22 @@ const DataScreen = ({ navigation }) => {
     console.log('Tombol Kembali Ke Home Ditekan');
     navigation.navigate('Home');
   };
-  const Dropdown = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
-  
-    const options = ['Pilihan 1', 'Pilihan 2', 'Pilihan 3'];
-  
-    const toggleDropdown = () => {
-      setIsOpen(!isOpen);
-    };
-  }
-  
-  
 
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
-      <View style={styles.containerTitle}>  
+      <ImageBackground  style={styles.bg}source={require('./../Assets/Images/bggggg.jpeg')}>
+      <View style={styles.containerTitle}>
       <TouchableOpacity onPress={toggleBack}>
         <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
       </TouchableOpacity>
       <Text style={styles.datatxt}> DATA WARGA </Text>
       </View>  
+      <FontAwesomeIcon icon={faShieldCat} size={130} style={styles.icon}/>
       <View style={styles.containerData}>
-      <View style={styles.Menu}>
-          <View style={styles.Menurow}>
-            <Button 
-              title="Data Warga"
-              icon={<FontAwesomeIcon icon={faListAlt}  color={Colors.darkBlue} size={20} />} 
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="center"
-            />
-            </View>
-            </View>
-
+      <Dropdown style={styles.dropdown}/>
       </View>
+      </ImageBackground>
       <Bottom />
     </View>
   );
@@ -73,6 +53,15 @@ const styles = StyleSheet.create({
     color:Colors.white,
     marginBottom:30,
   },
+  dropdown:{
+
+  },
+  icon:{
+    color:Colors.white,
+    marginRight:300,
+    marginTop:100,
+    marginBottom:90,
+  },
   containerTitle:{
     alignItems:'center',
     color:Colors.white,
@@ -86,11 +75,11 @@ const styles = StyleSheet.create({
     alignItems:'center',
     color:Colors.white,
     backgroundColor:Colors.white,
-    flexDirection: 'row',
-    marginTop: 1,
-    marginBottom:1,
-    justifyContent: 'space-between',
-    height:500,
+    height: 378,
+    width:423,
+    marginTop:10,
+    borderTopLeftRadius:30,
+    borderTopRightRadius:30,
   },
   BackIcon:{
     color:Colors.navy,

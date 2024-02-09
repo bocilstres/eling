@@ -36,12 +36,13 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
-      <View style={styles.containerDashboard} >  
       <View style={styles.row}>
       <Image style={styles.image} source={require('./../Assets/Images/hello.jpeg')}/>
-        <Text style={styles.username}>Hi Username</Text>
+        <Text style={styles.username}>Hi Mega</Text>
+        <Text style={styles.subname}>Have a nice day.</Text>
       </View>
 
+      <View style={styles.containerDashboard} >  
       <TouchableOpacity onPress={toggleModal} style={styles.button}>
         <FontAwesomeIcon style={{ marginTop: 10 }} icon={faTriangleExclamation} size={70} color='#FFD43B' />
         <Text style={styles.textdarurat}>Tombol Darurat</Text>
@@ -156,8 +157,10 @@ const styles = StyleSheet.create({
     width:windowWidth * 0.4,
     height:windowHeight * 0.1,
     borderRadius:20,
-    backgroundColor: Colors.lightBlue,  
+    backgroundColor: Colors.white,  
     justifyContent: 'space-around',
+    borderWidth:2,
+    borderColor:Colors.darkBlue,
   },
   Menu:{
     alignItems:'center',
@@ -169,21 +172,25 @@ const styles = StyleSheet.create({
   },
   container: {
     marginTop:33,
-    backgroundColor: '#0F2167',
+    backgroundColor:Colors.y,
     
   },
   row:{
     justifyContent:'space-around',
     backgroundColor: Colors.white,
-    marginTop: 20,
+    marginTop: 30,
     width: 360,
     height:windowHeight* 0.19,
     borderRadius: 20,
     marginBottom: 60,
+    marginLeft:33,
+    borderWidth:2,
+    borderColor:Colors.darkBlue,
+
   },
   image:{
-    marginTop:30,
-    width: 150,
+    marginTop:20,
+    width: 130,
     height: 150,
     resizeMode: 'contain',
     marginTop:57,
@@ -201,7 +208,14 @@ const styles = StyleSheet.create({
   username:{
     fontSize:20,
     color:Colors.darkBlue,
-    marginBottom: 120,
+    marginBottom: 98,
+    marginLeft: 40,
+    fontWeight: 'normal',
+  },
+  subname:{
+    fontSize:15,
+    color:Colors.darkBlue,
+    marginBottom: 110,
     marginLeft: 40,
     fontWeight: 'normal',
   },
@@ -209,7 +223,9 @@ const styles = StyleSheet.create({
     alignItems:'center',
     color:Colors.white,
     backgroundColor:Colors.wet, 
-    height: 744,
+    height: 491,
+    borderTopLeftRadius:50,
+    borderTopRightRadius:50,
   },
   button: {
     alignItems:'center',
@@ -217,7 +233,8 @@ const styles = StyleSheet.create({
     width: 360, 
     height:windowHeight* 0.13,
     borderRadius: 20,
-    marginBottom: 20, 
+    marginBottom: 20,
+    marginTop:50, 
   },
 
 });

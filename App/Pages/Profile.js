@@ -3,7 +3,7 @@ import { Button } from '@rneui/themed';
 import { View, Text, StyleSheet, Image,Dimensions,TouchableOpacity, ImageBackground } from 'react-native';
 import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faTriangleExclamation,faClipboardList, faListAlt, faBullhorn, faBell, faUser, faArrowLeft, faPeopleRobbery, faPersonRifle, faPerson, faPortrait, faShieldCat } from '@fortawesome/free-solid-svg-icons';
+import { faShieldCat } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
 import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
@@ -20,7 +20,7 @@ const ProfileScreen= ({ navigation }) => {
     <View style={styles.container}>
 
       <AppHeader onLogoutPress={handleLogout} />
-      <ImageBackground  style={styles.bg}source={require('./../Assets/Images/bgggg.jpeg')}>
+      <ImageBackground  style={styles.bg}source={require('./../Assets/Images/bggggg.jpeg')}>
       <View style={styles.row}>
         <FontAwesomeIcon icon={faShieldCat} size={130} style={styles.profile}/>
       </View>

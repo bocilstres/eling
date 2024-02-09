@@ -12,4 +12,5 @@ export default{
     bluw: '#EEE0C9',
     wet: '#F1F6F9',
     gtw: '#F6F4EB',
+    y: '#E5E1DA',
 }
