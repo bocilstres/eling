@@ -27,6 +27,10 @@ const HomeScreen = ({ navigation }) => {
     console.log('Tombol Ronda Di tekan');
     navigation.navigate('Ronda');
   };
+  const handlePengumuman = ()=> {
+    console.log('Tombol Pengumumna Di tekan');
+    navigation.navigate('Pengumuman');
+  };
   const toggleEmer = ()=> {
     console.log('Tombol Telah DI tekan');
     setModalVisible(!isModalVisible);
@@ -64,6 +68,7 @@ const HomeScreen = ({ navigation }) => {
             />
             <Button 
               title="Pengumuman"
+              onPress={handlePengumuman}
               icon={<FontAwesomeIcon icon={faBullhorn} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}

@@ -7,8 +7,6 @@ import { faShieldCat, faArrowLeft, faAddressCard, faShieldHalved } from '@fortaw
 import AppHeader from '../Componens/AppHeader';
 import Colors from '../Shared/Colors'
 import { colors } from 'react-native-elements';
-import Dropdown from '../Componens/Dropdown';
-import Bottom from '../Componens/Bottom';
 
 const SeninScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -32,16 +30,9 @@ const SeninScreen = ({ navigation }) => {
       </TouchableOpacity>
       <Text style={styles.datatxt}> RONDA SENIN </Text>
       </View>  
-      <Button 
-              title="SENIN"
-              icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} />} 
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-              iconStyle={styles.iconMenu}
-            />
+      <View style={styles.containerSenin} > 
+            </View>
       </ImageBackground>
-      <Bottom />
     </View>
   );
 };
@@ -52,25 +43,8 @@ const styles = StyleSheet.create({
     marginTop:33,
     backgroundColor: Colors.navy,
   },
-  buttonMenu:{
-    width:380,
-    height:100,
-    marginTop:15,
-    alignItems:'center',
-    marginLeft:25,
-    marginBottom:15,
-    borderRadius:10,
-    backgroundColor:Colors.white,
-    justifyContent:'space-around'
-  },
-  buttonText:{
-    color:Colors.black,
-    marginLeft:199,
-    marginRight:5,
-
-  },
-  iconMenu:{
-    alignItems:'flex-start',
+  containerSenin:{
+    backgroundColor:Colors.black,
   },
   containerTitle:{
     alignItems:'center',
