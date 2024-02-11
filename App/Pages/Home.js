@@ -23,6 +23,10 @@ const HomeScreen = ({ navigation }) => {
     console.log('Tombol Data Warga Di tekan');
     navigation.navigate('Data');
   };
+  const handleRonda = ()=> {
+    console.log('Tombol Ronda Di tekan');
+    navigation.navigate('Ronda');
+  };
   const toggleEmer = ()=> {
     console.log('Tombol Telah DI tekan');
     setModalVisible(!isModalVisible);
@@ -69,6 +73,7 @@ const HomeScreen = ({ navigation }) => {
           <View style={styles.Menurow}>
             <Button 
               title="Ronda"
+              onPress={handleRonda}
               icon={<FontAwesomeIcon icon={faShieldHalved} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}

@@ -6,6 +6,8 @@ import MyForm from './App/Pages/Login';
 import HomeScreen from './App/Pages/Home';
 import ProfileScreen from './App/Pages/Profile';
 import DataScreen from './App/Pages/Data';
+import RondaScreen from './App/Pages/Ronda';
+import SeninScreen from './App/Pages/Senin';
 
 
 const Stack = createNativeStackNavigator();
@@ -18,6 +20,8 @@ const App = () => {
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Profile" component={ProfileScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Data" component={DataScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Ronda" component={RondaScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Senin" component={SeninScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
