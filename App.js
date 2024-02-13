@@ -9,6 +9,7 @@ import DataScreen from './App/Pages/Data';
 import RondaScreen from './App/Pages/Ronda';
 import SeninScreen from './App/Pages/Senin';
 import PengumumanScreen from './App/Pages/Pengumuman';
+import SelasaScreen from './App/Pages/Selasa';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const App = () => {
         <Stack.Screen name="Data" component={DataScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Ronda" component={RondaScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Senin" component={SeninScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Selasa" component={SelasaScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Pengumuman" component={PengumumanScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>

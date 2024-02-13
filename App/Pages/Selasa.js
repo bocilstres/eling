@@ -9,7 +9,7 @@ import Table from '../Componens/Table';
 import Colors from '../Shared/Colors'
 import { colors } from 'react-native-elements';
 
-const SeninScreen = ({ navigation }) => {
+const SelasaScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const handleLogout = () => {
     // Tambahkan logika logout sesuai kebutuhan Anda
@@ -29,7 +29,7 @@ const SeninScreen = ({ navigation }) => {
       <TouchableOpacity onPress={toggleBack}>
         <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
       </TouchableOpacity>
-      <Text style={styles.datatxt}> RONDA SENIN </Text>
+      <Text style={styles.datatxt}> RONDA SELASA </Text>
       </View>  
       <View style={styles.containerSenin} > 
       <Table/>
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SeninScreen;
+export default SelasaScreen;

@@ -20,7 +20,7 @@ const ProfileScreen= ({ navigation }) => {
     <View style={styles.container}>
 
       <AppHeader onLogoutPress={handleLogout} />
-      <ImageBackground  style={styles.bg}source={require('./../Assets/Images/bggggg.jpeg')}>
+  
       <View style={styles.row}>
         <FontAwesomeIcon icon={faShieldCat} size={130} style={styles.profile}/>
       </View>
@@ -32,7 +32,7 @@ const ProfileScreen= ({ navigation }) => {
       <Text style={styles.NIK}>Nomor Telepon :</Text>
       <Text style={styles.bio}>08123456789</Text>
       </View>
-      </ImageBackground>
+
       <Bottom/>
     </View>
   );
@@ -42,38 +42,27 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   container: {
     marginTop:40,
-    backgroundColor: Colors.navy,
+    backgroundColor: Colors.wet,
     
   },
-  row:{
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  bg:{
-    width:500,
-    height:737,
-    resizeMode: 'contain',
-    alignItems: 'center',
-  },
   profile:{
-    alignItems: 'center',
     marginTop:100,
-    color:Colors.white,
-    marginRight:85,
+    color:Colors.darkBlue,
+    marginLeft:140,
     marginBottom:90,
   },
   containerDashboard:{
     alignItems:'center',
     color:Colors.white,
     backgroundColor:Colors.white,
-    borderTopLeftRadius:30,
-    borderTopRightRadius:30,
-    borderBottomLeftRadius:30,
-    borderBottomRightRadius:30,
+    borderRadius:30,
+    borderWidth:1,
+    borderColor:Colors.lightGray,
     height: 360,
     width:380,
-    marginRight:80,
+    marginLeft: 22,
     marginTop:10,
+    marginBottom:46,
   },
   NIK:{
     flexDirection: 'row',

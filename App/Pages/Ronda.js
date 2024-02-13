@@ -25,10 +25,16 @@ const RondaScreen = ({ navigation }) => {
     console.log('Senin pressed');
     navigation.navigate('Senin');
   };
+  const handleSelasa = () => {
+    console.log('Selasa pressed');
+    navigation.navigate('Selasa');
+  };
+
+
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
-      <ImageBackground  style={styles.bg}source={require('./../Assets/Images/bggggg.jpeg')}>
+  
       <View style={styles.containerTitle}>
       <TouchableOpacity onPress={toggleBack}>
         <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
@@ -47,7 +53,7 @@ const RondaScreen = ({ navigation }) => {
             <Button 
               title="SELASA"
               icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} iconStyle={styles.iconMenu} />} 
-              onPress={handleSenin}
+              onPress={handleSelasa}
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
               iconPosition="left"
@@ -98,7 +104,6 @@ const RondaScreen = ({ navigation }) => {
               iconPosition="left"
               iconStyle={styles.iconMenu}
             />
-      </ImageBackground>
       <Bottom />
     </View>
   );
@@ -107,12 +112,12 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   container: {
-    marginTop:33,
-    backgroundColor: Colors.navy,
+    marginTop:45,
+    backgroundColor: Colors.wet,
   },
   buttonMenu:{
     width:380,
-    height:84,
+    height:82,
     marginTop:15,
     alignItems:'center',
     marginLeft:25,
@@ -120,6 +125,8 @@ const styles = StyleSheet.create({
     borderRadius:10,
     backgroundColor:Colors.white,
     justifyContent:'space-around',
+    borderWidth:1,
+    borderColor:Colors.darkBlue,
   },
   buttonBawah:{
     width:380,
@@ -130,7 +137,10 @@ const styles = StyleSheet.create({
     marginBottom:9,
     borderRadius:10,
     backgroundColor:Colors.white,
+    borderWidth:1,
+    borderColor:Colors.darkBlue,
     justifyContent:'space-around'
+
   },
   buttonText:{
     fontSize:14,

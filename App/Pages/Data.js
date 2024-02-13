@@ -25,7 +25,6 @@ const DataScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
-      <ImageBackground  style={styles.bg}source={require('./../Assets/Images/bggggg.jpeg')}>
       <View style={styles.containerTitle}>
       <TouchableOpacity onPress={toggleBack}>
         <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
@@ -36,9 +35,8 @@ const DataScreen = ({ navigation }) => {
       <FontAwesomeIcon icon={faAddressCard} size={130} style={styles.icon}/>
       </View>
       <View style={styles.containerData}>
-      <Dropdown style={styles.dropdown}/>
+        <Dropdown style={styles.dropdown}/>
       </View>
-      </ImageBackground>
       <Bottom />
     </View>
   );
@@ -48,7 +46,7 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   container: {
     marginTop:33,
-    backgroundColor: Colors.navy,
+    backgroundColor: Colors.wet,
   },
   username:{
     fontSize:20,
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
     marginBottom:30,
   },
   dropdown:{
-
+    marginRight:90,
   },
   row:{
     alignItems:'center',
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
   icon:{
     alignItems: 'center',
     marginTop:45,
-    color:Colors.white,
+    color:Colors.darkBlue,
     marginBottom:45,
   },
   containerTitle:{
@@ -79,11 +77,14 @@ const styles = StyleSheet.create({
     alignItems:'center',
     color:Colors.white,
     backgroundColor:Colors.white,
-    height: 480,
-    width:423,
+    borderRadius:30,
+    borderWidth:1,
+    borderColor:Colors.lightGray,
+    height: 360,
+    width:380,
+    marginLeft: 22,
     marginTop:10,
-    borderTopLeftRadius:30,
-    borderTopRightRadius:30,
+    marginBottom:119,
   },
   BackIcon:{
     color:Colors.navy,

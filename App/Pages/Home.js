@@ -32,10 +32,11 @@ const HomeScreen = ({ navigation }) => {
     navigation.navigate('Pengumuman');
   };
   const toggleEmer = ()=> {
-    console.log('Tombol Telah DI tekan');
+    console.log('Tombol Darurat di tekan');
     setModalVisible(!isModalVisible);
   }
   const toggleModal = () => {
+    console.log('Tombol Batal Darurat di tekan');
     setModalVisible(!isModalVisible);
   };
 

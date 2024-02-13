@@ -1,70 +1,39 @@
-import React from 'react';
-import { View, Image, TouchableOpacity, StyleSheet,Dimensions } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
+import React , { useState }from 'react';
+import { View, Image, TouchableOpacity, StyleSheet,Dimensions} from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 import Colors from '../Shared/Colors';
 
-export default class Dropdown extends React.Component {
-  constructor(props) {
-      super(props);
-
-      this.state = {
-          country: null,
-          city: null,
-          cities: []
-      };
-  }
-
-  changeCountry(item) {
-      let city = null;
-      let cities;
-      switch (item.value) {
-          case 'fr':
-              cities = [
-                  {label: 'Paris', value: 'paris'}
-              ];
-          break;
-          case 'es':
-              cities = [
-                  {label: 'Madrid', value: 'madrid'}
-              ];
-          break;
-      }
-
-      this.setState({
-          city,
-          cities
-      });
-  }
-
-  changeCity(item) {
-      this.setState({
-          city: item.value
-      });
-  }
-
-  render() {
-      return (
-          <>
-              <DropDownPicker style={styles.DropDownPicker}
-                  items={[
-                      {label: 'France', value: 'fr'},
-                      {label: 'Spain', value: 'es', selected: true},
-                  ]}
-                  defaultIndex={1}
-                  defaultValue="France"
-                  placeholder="Megawati Soekarno Poetri"
-                  containerStyle={{height: 40}}
-                  onChangeItem={item => this.changeCountry(item)}
-              />
-          </>
-      );
-  }
-}
+const Dropdown = () => {
+    const [selectedValue, setSelectedValue] = useState('option1'); // State untuk menyimpan nilai yang dipilih
+  
+    return (
+      <View style={styles.DropDownPicker}>
+        <Picker
+          selectedValue={selectedValue}
+          style={styles.DropDownPicker}
+          onValueChange={(itemValue, itemIndex) =>
+            setSelectedValue(itemValue)
+          }>
+          <Picker.Item label="Option 1" value="option1" />
+          <Picker.Item label="Option 2" value="option2" />
+          <Picker.Item label="Option 3" value="option3" />
+        </Picker>
+      </View>
+    );
+  };
 
 const styles = StyleSheet.create({
   DropDownPicker: {
-    width:370,
-    marginLeft:25,
+    width:315,
+    borderRadius:30,
     marginTop:60,
+    marginLeft:30,
+    borderWidth:1,
+    borderColor:Colors.darkBlue
+  },
+  text:{
+    color:Colors.black,
   },
 });
+
+export default Dropdown;
