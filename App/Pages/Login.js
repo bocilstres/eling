@@ -135,7 +135,20 @@ const styles = StyleSheet.create({
     fontWeight: 'regular',
     marginBottom:11,
   },
-  
+  anntxt:{
+    fontSize:18,
+    fontWeight: 'normal',
+    color: Colors.black,
+    marginTop:20,
+    marginBottom:20,
+  },
+  announcementtxt:{
+    fontSize:18,
+    fontWeight: 'normal',
+    color: Colors.black,
+    marginTop:90,
+    marginBottom:5,
+  },
   
 });
 

@@ -5,7 +5,6 @@ import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faTriangleExclamation,faClipboardList, faListAlt, faBullhorn, faBell, faUser, faTableCells, faTableList, faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
-import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
 
 const HomeScreen = ({ navigation }) => {
@@ -28,7 +27,7 @@ const HomeScreen = ({ navigation }) => {
     navigation.navigate('Ronda');
   };
   const handlePengumuman = ()=> {
-    console.log('Tombol Pengumumna Di tekan');
+    console.log('Tombol Pengumuman Di tekan');
     navigation.navigate('Pengumuman');
   };
   const toggleEmer = ()=> {
@@ -39,8 +38,7 @@ const HomeScreen = ({ navigation }) => {
     console.log('Tombol Batal Darurat di tekan');
     setModalVisible(!isModalVisible);
   };
-
-
+  
 
   return (
     <View style={styles.container}>
@@ -94,7 +92,6 @@ const HomeScreen = ({ navigation }) => {
               iconPosition="left"
             />
           </View>
-          <Bottom/>
         </View>
 
         <Modal
@@ -120,7 +117,6 @@ const HomeScreen = ({ navigation }) => {
       </Modal>
         
       </View>
-      <Bottom />
     </View>
   );
 };
@@ -150,18 +146,15 @@ const styles = StyleSheet.create({
     marginTop: 1,
     alignItems: 'center', 
   },
-  
   modalContent: {
     backgroundColor: Colors.red,
     alignItems: 'center',
     borderRadius: 20,
     height: windowHeight* 0.35
-
   },
   buttonText:{
     color:Colors.darkBlue,
     fontWeight: 'regular',
-    
   },
   buttonMenu:{
     margin:10,
@@ -170,7 +163,7 @@ const styles = StyleSheet.create({
     borderRadius:20,
     backgroundColor: Colors.white,  
     justifyContent: 'space-around',
-    borderWidth:2,
+    borderWidth:1,
     borderColor:Colors.darkBlue,
   },
   Menu:{
@@ -182,7 +175,7 @@ const styles = StyleSheet.create({
     
   },
   container: {
-    marginTop:33,
+    marginTop:45,
     backgroundColor:Colors.y,
     
   },

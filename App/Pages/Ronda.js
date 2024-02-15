@@ -5,10 +5,10 @@ import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faShieldCat, faArrowLeft, faAddressCard, faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
-import Colors from '../Shared/Colors'
+import Colors from '../Shared/Colors';
+import Table from '../Componens/Table';
+import InfiniteScroll  from 'react-infinite-scroller'
 import { colors } from 'react-native-elements';
-import Dropdown from '../Componens/Dropdown';
-import Bottom from '../Componens/Bottom';
 
 const RondaScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -41,71 +41,15 @@ const RondaScreen = ({ navigation }) => {
       </TouchableOpacity>
       <Text style={styles.datatxt}> JADWAL RONDA </Text>
       </View>  
-      <Button 
-              title="SENIN"
-              icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} iconStyle={styles.iconMenu} />} 
-              onPress={handleSenin}
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-              iconStyle={styles.iconMenu}
-            />
-            <Button 
-              title="SELASA"
-              icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} iconStyle={styles.iconMenu} />} 
-              onPress={handleSelasa}
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-              iconStyle={styles.iconMenu}
-            />
-            <Button 
-              title="RABU"
-              icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} iconStyle={styles.iconMenu} />} 
-              onPress={handleSenin}
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-              iconStyle={styles.iconMenu}
-            />
-            <Button 
-              title="KAMIS"
-              icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} iconStyle={styles.iconMenu} />} 
-              onPress={handleSenin}
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-              iconStyle={styles.iconMenu}
-            />
-            <Button 
-              title="JUMAT"
-              icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} iconStyle={styles.iconMenu} />} 
-              onPress={handleSenin}
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-              iconStyle={styles.iconMenu}
-            />
-            <Button 
-              title="SABTU"
-              icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} iconStyle={styles.iconMenu} />} 
-              onPress={handleSenin}
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-              iconStyle={styles.iconMenu}
-            />
-            <Button 
-              title="MINGGU"
-              icon={<FontAwesomeIcon icon={faShieldHalved}  color={Colors.black} size={30} iconStyle={styles.iconMenu} />} 
-              onPress={handleSenin}
-              buttonStyle= {styles.buttonBawah}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-              iconStyle={styles.iconMenu}
-            />
-      <Bottom />
+      <InfiniteScroll>
+
+      <View style={styles.containerSenin} > 
+      <Table/>
+      </View>
+
+      </InfiniteScroll>
     </View>
+    
   );
 };
 const windowWidth = Dimensions.get('window').width;
@@ -115,41 +59,17 @@ const styles = StyleSheet.create({
     marginTop:45,
     backgroundColor: Colors.wet,
   },
-  buttonMenu:{
-    width:380,
-    height:82,
-    marginTop:15,
-    alignItems:'center',
-    marginLeft:25,
-    marginBottom:1,
-    borderRadius:10,
+  containerSenin:{
+    height:800,
     backgroundColor:Colors.white,
-    justifyContent:'space-around',
+    width:380,
+    height:730,
+    marginTop:10,
+    marginBottom:255,
+    marginLeft:20,
+    borderRadius:10,
     borderWidth:1,
     borderColor:Colors.darkBlue,
-  },
-  buttonBawah:{
-    width:380,
-    height:84,
-    marginTop:15,
-    alignItems:'center',
-    marginLeft:25,
-    marginBottom:9,
-    borderRadius:10,
-    backgroundColor:Colors.white,
-    borderWidth:1,
-    borderColor:Colors.darkBlue,
-    justifyContent:'space-around'
-
-  },
-  buttonText:{
-    fontSize:14,
-    marginLeft:199,
-    marginRight:5,
-    color:Colors.darkBlue,
-  },
-  iconMenu:{
-    
   },
   containerTitle:{
     alignItems:'center',

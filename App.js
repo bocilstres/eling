@@ -7,7 +7,7 @@ import HomeScreen from './App/Pages/Home';
 import ProfileScreen from './App/Pages/Profile';
 import DataScreen from './App/Pages/Data';
 import RondaScreen from './App/Pages/Ronda';
-import SeninScreen from './App/Pages/Senin';
+import Pengumuman1Screen from './App/Pages/Pengumuman1';
 import PengumumanScreen from './App/Pages/Pengumuman';
 import SelasaScreen from './App/Pages/Selasa';
 
@@ -22,7 +22,7 @@ const App = () => {
         <Stack.Screen name="Profile" component={ProfileScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Data" component={DataScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Ronda" component={RondaScreen} options={{headerShown:false}}/>
-        <Stack.Screen name="Senin" component={SeninScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Pengumuman1" component={Pengumuman1Screen} options={{headerShown:false}}/>
         <Stack.Screen name="Selasa" component={SelasaScreen} options={{headerShown:false}}/>
         <Stack.Screen name="Pengumuman" component={PengumumanScreen} options={{headerShown:false}}/>
       </Stack.Navigator>

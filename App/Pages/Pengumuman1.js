@@ -9,7 +9,7 @@ import Table from '../Componens/Table';
 import Colors from '../Shared/Colors'
 import { colors } from 'react-native-elements';
 
-const SeninScreen = ({ navigation }) => {
+const Pengumuman1Screen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const handleLogout = () => {
     // Tambahkan logika logout sesuai kebutuhan Anda
@@ -17,24 +17,25 @@ const SeninScreen = ({ navigation }) => {
     navigation.navigate('Login');
   };
   const toggleBack = ()=> {
-    console.log('Tombol Kembali Ke Ronda Ditekan');
-    navigation.navigate('Ronda');
+    console.log('Tombol Kembali Ke Home');
+    navigation.navigate('Home');
   };
 
   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
-      <ImageBackground  style={styles.bg}source={require('./../Assets/Images/bggggg.jpeg')}>
       <View style={styles.containerTitle}>
       <TouchableOpacity onPress={toggleBack}>
         <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
       </TouchableOpacity>
-      <Text style={styles.datatxt}> RONDA SENIN </Text>
+      <Text style={styles.datatxt}> PENGUMUMAN WARGA </Text>
       </View>  
       <View style={styles.containerSenin} > 
-      <Table/>
-            </View>
-      </ImageBackground>
+      <Text style={styles.anntxt}> PENGUMUMAN </Text>
+      <Text style={styles.annnouncementtxt}> Assalamualaikum, Kpd seluruh warga Kp. Durian Runtuh bahwa besok pagi 
+      yaitu Sabtu, 20 Januari 2025 akan melaksanakan Gotong Royong s/d. Selesai. Dimohon untuk partisipasi nya. 
+      Terima Kasih atas perhatian saudara-saudari. Wassalamualaikum. </Text>
+      </View>
     </View>
   );
 };
@@ -43,17 +44,21 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   container: {
     marginTop:45,
-    
+    backgroundColor:Colors.wet,
   },
   containerSenin:{
     height:800,
+    alignItems:'center',
     backgroundColor:Colors.white,
     width:380,
-    height:500,
+    height:200,
     marginTop:10,
     marginBottom:255,
     marginLeft:20,
     borderRadius:10,
+    borderWidth:2,
+    borderColor:Colors.darkBlue,
+    marginHorizontal:10,
   },
   containerTitle:{
     alignItems:'center',
@@ -74,10 +79,24 @@ const styles = StyleSheet.create({
     fontSize:18,
     fontWeight: 'bold',
     color: Colors.navy,
-    marginRight: 150,
+    marginRight: 120,
     marginTop:5,
+    marginBottom:5,
+  },
+  anntxt:{
+    fontSize:18,
+    fontWeight: 'normal',
+    color: Colors.black,
+    marginTop:20,
+    marginBottom:20,
+  },
+  announcementtxt:{
+    fontSize:18,
+    fontWeight: 'normal',
+    color: Colors.black,
+    marginTop:90,
     marginBottom:5,
   },
 });
 
-export default SeninScreen;
+export default Pengumuman1Screen;
