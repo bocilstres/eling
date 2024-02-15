@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Input, Button, colors } from 'react-native-elements';
 import { Card } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, Image, StyleSheet, TextInput, Dimensions  } from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput, Dimensions,Alert  } from 'react-native';
 import Colors from '../Shared/Colors';
 
 
@@ -10,10 +10,19 @@ const MyForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
+
   const handleLogin = () => {
     console.log('Username:', username);
     console.log('Password:', password);
     navigation.navigate('Home');
+
+    if (username === 'user' && password === 'password') {
+      // Login berhasil, lakukan sesuatu di sini
+      Alert.alert('Login Berhasil', 'Selamat datang, ' + username);
+    } else {
+      // Login gagal, tampilkan pesan kesalahan
+      Alert.alert('Login Gagal', 'Username atau password salah');
+    }
   };
 
   return (

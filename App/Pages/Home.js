@@ -5,6 +5,7 @@ import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faTriangleExclamation,faClipboardList, faListAlt, faBullhorn, faBell, faUser, faTableCells, faTableList, faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
+import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
 
 const HomeScreen = ({ navigation }) => {
@@ -58,40 +59,31 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.Menu}>
           <View style={styles.Menurow}>
             <Button 
-              title="Data Warga"
+          
               onPress={handleData}
               icon={<FontAwesomeIcon icon={faListAlt}  color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="left"
+              iconPosition="top"
             />
+             <Text style={styles.textbutton}>Data Warga</Text>
             <Button 
-              title="Pengumuman"
               onPress={handlePengumuman}
               icon={<FontAwesomeIcon icon={faBullhorn} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="left"
+              iconPosition="top"
             />
-          </View>
-          <View style={styles.Menurow}>
-            <Button 
-              title="Ronda"
+             <Button 
               onPress={handleRonda}
               icon={<FontAwesomeIcon icon={faShieldHalved} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="left"
+              iconPosition="top"
             />
-            <Button 
-              title="Go to Profile"
-              onPress={handleProfile}
-              icon={<FontAwesomeIcon icon={faUser} color={Colors.darkBlue} size={20} />} 
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-            />
+          
           </View>
+          <Bottom/>
         </View>
 
         <Modal
@@ -155,14 +147,15 @@ const styles = StyleSheet.create({
   buttonText:{
     color:Colors.darkBlue,
     fontWeight: 'regular',
+    marginTop:10,
   },
   buttonMenu:{
     margin:10,
-    width:windowWidth * 0.4,
+    width:90,
     height:windowHeight * 0.1,
-    borderRadius:20,
+    borderRadius:50,
     backgroundColor: Colors.white,  
-    justifyContent: 'space-around',
+  
     borderWidth:1,
     borderColor:Colors.darkBlue,
   },
@@ -207,6 +200,11 @@ const styles = StyleSheet.create({
     color:Colors.white, 
     fontSize:15,
     marginBottom:30,
+    marginTop: 3, 
+  },
+  textbutton:{
+    color:Colors.darkBlue, 
+    fontSize:15,
     marginTop: 3, 
   },
   username:{

@@ -1,58 +1,61 @@
-import React, { useState } from 'react'
-import InfiniteScroll  from 'react-infinite-scroller'
-import UserService from 'services/UserService';
+import React, { useState, useEffect } from 'react';
+import { View, FlatList, Text, ActivityIndicator, StyleSheet } from 'react-native';
 
+const Scroll = () => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
-export default function InfiniteScrollerWithReactInfiniteScroller() {
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  const [userList, setUserList] = useState([]);
-  const [hasMoreItems, setHasMoreItems] = useState(true);
-
-  const loadRondaList = (page) => {
+  const fetchData = () => {
+    setIsLoading(true);
+    // Simulasi pengambilan data dari sumber eksternal (misalnya, API)
     setTimeout(() => {
-      UserService.getList(Ronda)
-      .then((res) => {
-        const newList = userList.concat(res.data);
-        setRondaList(newList);
+      const newData = Array.from({ length: 10 }, (_, index) => ({
+        id: page * 10 + index,
+        text: `Item ${page * 10 + index + 1}`,
+      }));
+      setData((prevData) => [...prevData, ...newData]);
+      setPage((prevPage) => prevPage + 1);
+      setIsLoading(false);
+    }, 1000); // Waktu simulasi pengambilan data
+  };
 
-        if(res.data.length===0) {
-          setHasMoreItems(false);
-        } else {
-          setHasMoreItems(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-    
-    }, 1500)
-  }
-  
+  const renderFooter = () => {
+    return isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : null;
+  };
+
   return (
-    <div>
-      <div className="section">
-        <InfiniteScroll
-          threshold={0}
-          pageStart={0}
-          loadMore={loadUserList}
-          hasMore={hasMoreItems}
-          loader={<div className="text-center">loading data ...</div>}>
+    <View style={styles.container}>
+      <FlatList
+        data={data}
+        renderItem={({ item }) => (
+          <View style={styles.item}>
+            <Text>{item.text}</Text>
+          </View>
+        )}
+        keyExtractor={(item) => item.id.toString()}
+        onEndReached={fetchData}
+        onEndReachedThreshold={0.1}
+        ListFooterComponent={renderFooter}
+      />
+    </View>
+  );
+};
 
-            {userList.map((user, i) => 
-              ( 
-              <div className="box m-3 user" key={i}>
-                <img src={user.avatar} alt={user.first_name}/>
-                <div className="user-details">
-                  <strong>Email</strong>: {user.email}<br/> 
-                  <strong>First Name</strong>: {user.first_name}<br/> 
-                  <strong>Last Name</strong>: {user.last_name}<br/>
-                </div>
-              </div>
-              )
-            )}
-        </InfiniteScroll>
-        {hasMoreItems ? "" : <div className="text-center">no data anymore ...</div> }    
-      </div>
-    </div>
-  )
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22,
+  },
+  item: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#cccccc',
+  },
+});
+
+export default Scroll;
