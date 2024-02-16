@@ -1,4 +1,4 @@
-import React , { useState }from 'react';
+import React , { useState, useEffect }from 'react';
 import { Button } from '@rneui/themed';
 import { View, Text, StyleSheet, Image,Dimensions,TouchableOpacity, ImageBackground } from 'react-native';
 import Modal from 'react-native-modal';
@@ -7,9 +7,62 @@ import { faShieldCat } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
 import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProfileScreen= ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [data, setData] = useState({
+    NIK: '',
+    NamaLengkap: '',
+    NomorTelepon: '',
+    // Tambahkan properti lain sesuai kebutuhan
+  });
+
+  const getTokenFromStorage = async () => {
+    try {
+      const accessToken = await AsyncStorage.getItem('AccessToken');
+      return accessToken;
+    } catch (error) {
+      console.error('Error getting token from AsyncStorage:', error);
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const API_URL = 'https://54bc-103-165-227-178.ngrok-free.app/tokenwarga';
+
+      try {
+        const token = await getTokenFromStorage();
+        // console.log(token);
+
+        const apiUrlWithToken = `${API_URL}?token=${token}`;
+
+        const response = await fetch(apiUrlWithToken, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const result = await response.json();
+        const hasil = result[0].payload;
+        const getall = hasil[0];
+        setData({
+          NIK: getall.nik || '',
+          NamaLengkap: getall.nama_lengkap || '',
+          NomorTelepon: getall.no_telepon || '',
+          // Sesuaikan properti lainnya
+        });
+
+     
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const handleLogout = () => {
     // Tambahkan logika logout sesuai kebutuhan Anda
     console.log('Logout pressed'); 
@@ -26,11 +79,11 @@ const ProfileScreen= ({ navigation }) => {
       </View>
       <View style={styles.containerDashboard}>  
       <Text style={styles.NIK}>NIK :</Text>
-      <Text style={styles.bio}>3204405202050002</Text>
+      <Text style={styles.bio}>{data.NIK}</Text>
       <Text style={styles.NIK}>Nama Lengkap :</Text>
-      <Text style={styles.bio}>Megawati Soekarno Poetri</Text>
+      <Text style={styles.bio}>{data.NamaLengkap}</Text>
       <Text style={styles.NIK}>Nomor Telepon :</Text>
-      <Text style={styles.bio}>08123456789</Text>
+      <Text style={styles.bio}>{data.NomorTelepon}</Text>
       </View>
 
       <Bottom/>
