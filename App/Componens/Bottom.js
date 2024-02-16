@@ -1,79 +1,57 @@
-import React from 'react';
-import { View, Image, TouchableOpacity, StyleSheet,Dimensions } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faHome,faUser,faListAlt,faBullhorn,faShieldHalved } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Profile from '../../Pro';
 import Colors from '../Shared/Colors';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-// Screens
-import HomeScreen from '../screens/HomeScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import DataScreen from '../screens/DataScreen';
-import RondaScreen from '../screens/RondaScreen';
+const Bottom = ({ }) => {
+  const [selectedTab, setSelectedTab] = useState('home');
 
-//Screen names
-const HomeName = 'Home';
-const ProfileName = 'Profile';
-const DataName = 'Data';
-const RondaName = 'Ronda';
+  const handleProfile = (Profile) => {
+    setSelectedTab(Profile); // Update selectedTab state when a tab is pressed
+  };
+  const handleHome = (Home) => {
+    setSelectedTab(Home); // Update selectedTab state when a tab is pressed
+  };
 
-const Tab = createBottomTabNavigator();
-
-
-export default function Bottom() {
   return (
-    <NavigationContainer independent={true}>
-      <Tab.Navigator
-        initialRouteName={HomeName}
-        screenOptions={({ route }) => ({
-          
-          tabBarStyle: [
-            {
-              display: 'flex',
-              height:65,
-            },
-          ],
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={[styles.tabButton, selectedTab === 'Home' && styles.selectedTab]}
+        onPress={() => handleHome ('Home')}>
+        <Icon name="home" size={24} color={selectedTab === 'Home' ? Colors.white : Colors.darkBlue} />
+      </TouchableOpacity>
 
-          tabBarLabelStyle: [
-            {
-              fontSize:13,
-              marginTop:10,
-              marginBottom:5,
-
-            },
-          ],
-          
-          tabBarIconStyle: [
-            {
-              marginTop:15,
-            },
-          ],
-          
-          tabBarIcon: ({ focused, size, color }) => {
-            let iconName;
-
-            if (route.name === HomeName) {
-              iconName = focused ? faHome : faHome;
-            } else if (route.name     === DataName) {
-              iconName = focused ? faListAlt : faListAlt;
-            } else if (route.name === ProfileName) {
-              iconName = focused ? faUser : faUser;
-            } else if (route.name     === RondaName) {
-              iconName = focused ? faShieldHalved : faShieldHalved;
-            }
-
-            return <FontAwesomeIcon icon={iconName} size={20} color={color} />;
-          },
-        })}
-
-      >
-        <Tab.Screen name={HomeName} component={HomeScreen} />
-        <Tab.Screen name={RondaName} component={RondaScreen} />
-        <Tab.Screen name={DataName} component={DataScreen} />
-        <Tab.Screen name={ProfileName} component={ProfileScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+      <TouchableOpacity
+        style={[styles.tabButton, selectedTab === 'Profile' && styles.selectedTab]}
+        onPress={() => handleProfile('Profile')}>
+        <Icon name="user" size={24} color={selectedTab === 'Profile' ? Colors.white : Colors.darkBlue} />
+      </TouchableOpacity>
+    </View>
   );
-}
+};
 
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    height: 60,
+    elevation: 8, // Efek bayangan
+    top:93,
+  },
+  tabButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+  selectedTab: {
+    backgroundColor: Colors.darkBlue, // Warna latar belakang saat tab dipilih
+    height:50,
+    borderRadius:50,
+  },
+});
+
+export default Bottom;

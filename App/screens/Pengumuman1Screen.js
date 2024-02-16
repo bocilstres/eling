@@ -2,13 +2,13 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const SeninScreen = ({ navigation }) => {
+const Pengumuman1Screen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>Senin Screen</Text>
       <Button
-        title="Go to Senin"
-        onPress={(handleSenin) => navigation.navigate('Senin')}
+        title="Go to Pengumuman1"
+        onPress={(handlePengumuman1) => navigation.navigate('Senin')}
       />
     </View>
   );
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SeninScreen;
+export default Pengumuman1Screen;

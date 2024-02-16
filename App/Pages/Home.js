@@ -90,7 +90,7 @@ const HomeScreen = ({ navigation }) => {
     navigation.navigate('Ronda');
   };
   const handlePengumuman = ()=> {
-    console.log('Tombol Pengumumna Di tekan');
+    console.log('Tombol Pengumuman Di tekan');
     navigation.navigate('Pengumuman');
   };
   const toggleEmer = ()=> {
@@ -101,8 +101,7 @@ const HomeScreen = ({ navigation }) => {
     console.log('Tombol Batal Darurat di tekan');
     setModalVisible(!isModalVisible);
   };
-
-
+  
 
   return (
     <View style={styles.container}>
@@ -122,39 +121,29 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.Menu}>
           <View style={styles.Menurow}>
             <Button 
-              title="Data Warga"
+          
               onPress={handleData}
               icon={<FontAwesomeIcon icon={faListAlt}  color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="left"
+              iconPosition="top"
             />
+             <Text style={styles.textbutton}>Data Warga</Text>
             <Button 
-              title="Pengumuman"
               onPress={handlePengumuman}
               icon={<FontAwesomeIcon icon={faBullhorn} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="left"
+              iconPosition="top"
             />
-          </View>
-          <View style={styles.Menurow}>
-            <Button 
-              title="Ronda"
+             <Button 
               onPress={handleRonda}
               icon={<FontAwesomeIcon icon={faShieldHalved} color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
-              iconPosition="left"
+              iconPosition="top"
             />
-            <Button 
-              title="Go to Profile"
-              onPress={handleProfile}
-              icon={<FontAwesomeIcon icon={faUser} color={Colors.darkBlue} size={20} />} 
-              buttonStyle= {styles.buttonMenu}
-              titleStyle={styles.buttonText}
-              iconPosition="left"
-            />
+          
           </View>
           <Bottom/>
         </View>
@@ -182,7 +171,6 @@ const HomeScreen = ({ navigation }) => {
       </Modal>
         
       </View>
-      <Bottom />
     </View>
   );
 };
@@ -212,27 +200,25 @@ const styles = StyleSheet.create({
     marginTop: 1,
     alignItems: 'center', 
   },
-  
   modalContent: {
     backgroundColor: Colors.red,
     alignItems: 'center',
     borderRadius: 20,
     height: windowHeight* 0.35
-
   },
   buttonText:{
     color:Colors.darkBlue,
     fontWeight: 'regular',
-    
+    marginTop:10,
   },
   buttonMenu:{
     margin:10,
-    width:windowWidth * 0.4,
+    width:90,
     height:windowHeight * 0.1,
-    borderRadius:20,
+    borderRadius:50,
     backgroundColor: Colors.white,  
-    justifyContent: 'space-around',
-    borderWidth:2,
+  
+    borderWidth:1,
     borderColor:Colors.darkBlue,
   },
   Menu:{
@@ -244,7 +230,7 @@ const styles = StyleSheet.create({
     
   },
   container: {
-    marginTop:33,
+    marginTop:45,
     backgroundColor:Colors.y,
     
   },
@@ -276,6 +262,11 @@ const styles = StyleSheet.create({
     color:Colors.white, 
     fontSize:15,
     marginBottom:30,
+    marginTop: 3, 
+  },
+  textbutton:{
+    color:Colors.darkBlue, 
+    fontSize:15,
     marginTop: 3, 
   },
   username:{

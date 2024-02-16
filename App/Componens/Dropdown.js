@@ -1,38 +1,71 @@
-import React , { useState }from 'react';
-import { View, Image, TouchableOpacity, StyleSheet,Dimensions} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Colors from '../Shared/Colors';
 
-const Dropdown = () => {
-    const [selectedValue, setSelectedValue] = useState('option1'); // State untuk menyimpan nilai yang dipilih
-  
-    return (
-      <View style={styles.DropDownPicker}>
-        <Picker
-          selectedValue={selectedValue}
-          style={styles.DropDownPicker}
-          onValueChange={(itemValue, itemIndex) =>
-            setSelectedValue(itemValue)
-          }>
-          <Picker.Item label="Option 1" value="option1" />
-          <Picker.Item label="Option 2" value="option2" />
-          <Picker.Item label="Option 3" value="option3" />
-        </Picker>
-      </View>
-    );
+const Dropdown = ({ options }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const toggleDropdown = () => {
+    setIsVisible(!isVisible);
   };
 
+  const handleSelectOption = (option) => {
+    setSelectedOption(option);
+    toggleDropdown();
+  };
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={toggleDropdown} style={styles.dropdownButton}>
+        <Text>{selectedOption || 'Megawati Soekarno Poetri'}</Text>
+      </TouchableOpacity>
+      {isVisible && (
+        <View style={styles.dropdownList}>
+          {options.map((option, index) => (
+            <TouchableOpacity
+              key={index}
+              style={styles.option}
+              onPress={() => handleSelectOption(option)}>
+              <Text>{option}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      )}
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
-  DropDownPicker: {
-    width:315,
-    borderRadius:30,
-    marginTop:60,
-    marginLeft:30,
-    borderWidth:1,
-    borderColor:Colors.darkBlue
+  container: {
+    position: 'absolute',
   },
-  text:{
-    color:Colors.black,
+  dropdownButton: {
+    padding: 20,
+    top: 60,
+    borderWidth: 1,
+    borderColor: Colors.darkBlue,
+    borderRadius:10,
+    borderRightColor:Colors.darkBlue,
+    borderLeftWidth:15,
+    width:300,
+  },
+  dropdownList: {
+    position: 'absolute',
+    top: 100,
+    right: 0,
+    left: 14,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor:Colors.darkBlue,
+    borderTopRightRadius:10,
+    borderBottomRightRadius:10,
+    marginTop:25,
+    width:285,
+  },
+  option: {
+    padding: 20,
+    borderBottomColor: '#ccc',
   },
 });
 

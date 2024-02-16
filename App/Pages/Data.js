@@ -8,7 +8,6 @@ import AppHeader from '../Componens/AppHeader';
 import Colors from '../Shared/Colors'
 import { colors } from 'react-native-elements';
 import Dropdown from '../Componens/Dropdown';
-import Bottom from '../Componens/Bottom';
 
 const DataScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -35,9 +34,8 @@ const DataScreen = ({ navigation }) => {
       <FontAwesomeIcon icon={faAddressCard} size={130} style={styles.icon}/>
       </View>
       <View style={styles.containerData}>
-        <Dropdown style={styles.dropdown}/>
+      <Dropdown options={['Megawati Soekarno Poetri', 'Ganjar Pranowo', 'Puan Maharani']} />
       </View>
-      <Bottom />
     </View>
   );
 };
@@ -79,7 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.white,
     borderRadius:30,
     borderWidth:1,
-    borderColor:Colors.lightGray,
+    borderColor:Colors.darkBlue,
     height: 360,
     width:380,
     marginLeft: 22,

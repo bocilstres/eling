@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Input, Button, colors } from 'react-native-elements';
 import { Card } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, Image, StyleSheet, TextInput, Dimensions  } from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput, Dimensions,Alert  } from 'react-native';
 import Colors from '../Shared/Colors';
 import { login } from '../Api/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -145,7 +145,20 @@ const styles = StyleSheet.create({
     fontWeight: 'regular',
     marginBottom:11,
   },
-  
+  anntxt:{
+    fontSize:18,
+    fontWeight: 'normal',
+    color: Colors.black,
+    marginTop:20,
+    marginBottom:20,
+  },
+  announcementtxt:{
+    fontSize:18,
+    fontWeight: 'normal',
+    color: Colors.black,
+    marginTop:90,
+    marginBottom:5,
+  },
   
 });
 

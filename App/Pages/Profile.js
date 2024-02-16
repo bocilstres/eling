@@ -3,9 +3,8 @@ import { Button } from '@rneui/themed';
 import { View, Text, StyleSheet, Image,Dimensions,TouchableOpacity, ImageBackground } from 'react-native';
 import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faShieldCat } from '@fortawesome/free-solid-svg-icons';
+import { faShieldCat, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
-import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -68,6 +67,10 @@ const ProfileScreen= ({ navigation }) => {
     console.log('Logout pressed'); 
     navigation.navigate('Login');
   };
+  const toggleBack = () => {
+    console.log('Tombol Kembali Ke Home Ditekan');
+    navigation.navigate('Home');
+  };
 
   return (
     <View style={styles.container}>
@@ -75,6 +78,9 @@ const ProfileScreen= ({ navigation }) => {
       <AppHeader onLogoutPress={handleLogout} />
   
       <View style={styles.row}>
+      <TouchableOpacity onPress={toggleBack}>
+        <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
+      </TouchableOpacity>
         <FontAwesomeIcon icon={faShieldCat} size={130} style={styles.profile}/>
       </View>
       <View style={styles.containerDashboard}>  
@@ -86,7 +92,6 @@ const ProfileScreen= ({ navigation }) => {
       <Text style={styles.bio}>{data.NomorTelepon}</Text>
       </View>
 
-      <Bottom/>
     </View>
   );
 };
@@ -110,7 +115,7 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.white,
     borderRadius:30,
     borderWidth:1,
-    borderColor:Colors.lightGray,
+    borderColor:Colors.darkBlue,
     height: 360,
     width:380,
     marginLeft: 22,

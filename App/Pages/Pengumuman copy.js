@@ -19,9 +19,9 @@ const PengumumanScreen = ({ navigation }) => {
     console.log('Tombol Kembali Ke Home Ditekan');
     navigation.navigate('Home');
   };
-  const handlePengumuman1 = () => {
-    console.log('Pengumuman1 pressed');
-    navigation.navigate('Pengumuman1');
+  const handleSenin = () => {
+    console.log('Senin pressed');
+    navigation.navigate('Senin');
   };
   return (
     <View style={styles.container}>
@@ -31,26 +31,34 @@ const PengumumanScreen = ({ navigation }) => {
         <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
       </TouchableOpacity>
       <Text style={styles.datatxt}> PENGUMUMAN </Text>
-      </View> 
-      <View style={styles.containerDashboard}>  
-      <Text style={styles.anntxt}> PENGUMUMAN KEGIATAN </Text>
-      <Text style={styles.annnouncementtxt}> Assalamualaikum, Kpd seluruh warga Kp. Durian Runtuh bahwa besok pagi 
-      yaitu Sabtu, 20 Januari 2025 akan melaksanakan Gotong Royong s/d. Selesai. Dimohon untuk partisipasi nya. 
-      Terima Kasih atas perhatian saudara-saudari. Wassalamualaikum. </Text>
-      </View>
-      <View style={styles.containerDashboard}>  
-      <Text style={styles.anntxt}> PEMBERITAHUAN DUKA </Text>
-      <Text style={styles.annnouncementtxt}> Assalamualaikum, Innalillahi Wa Inna Ilaihi Roji'un. Telah berpulang Kpd seluruh warga Kp. Durian Runtuh bahwa besok pagi 
-      yaitu Sabtu, 20 Januari 2025 akan melaksanakan Gotong Royong s/d. Selesai. Dimohon untuk partisipasi nya. 
-      Terima Kasih atas perhatian saudara-saudari. Wassalamualaikum. </Text>
-      </View>
-      <View style={styles.containerDashboard}>  
-      <Text style={styles.anntxt}> PENGUMUMAN KEGIATAN </Text>
-      <Text style={styles.annnouncementtxt}> Assalamualaikum, Kpd seluruh warga Kp. Durian Runtuh bahwa besok pagi 
-      yaitu Sabtu, 20 Januari 2025 akan melaksanakan Gotong Royong s/d. Selesai. Dimohon untuk partisipasi nya. 
-      Terima Kasih atas perhatian saudara-saudari. Wassalamualaikum. </Text>
-      </View>
-
+      </View>  
+      <Button 
+              title="PENGUMUMAN"
+              icon={<FontAwesomeIcon icon={faBullhorn}  color={Colors.darkBlue} size={30} />} 
+              onPress={handleSenin}
+              buttonStyle= {styles.buttonMenu}
+              titleStyle={styles.buttonText}
+              iconPosition="left"
+              iconStyle={styles.iconMenu}
+            />
+            <Button 
+              title="PENGUMUMAN"
+              icon={<FontAwesomeIcon icon={faBullhorn}  color={Colors.darkBlue} size={30} />} 
+              onPress={handleSenin}
+              buttonStyle= {styles.buttonMenu}
+              titleStyle={styles.buttonText}
+              iconPosition="left"
+              iconStyle={styles.iconMenu}
+            />
+            <Button 
+              title="PENGUMUMAN"
+              icon={<FontAwesomeIcon icon={faBullhorn}  color={Colors.darkBlue} size={30} />} 
+              onPress={handleSenin}
+              buttonStyle= {styles.buttonBawah}
+              titleStyle={styles.buttonText}
+              iconPosition="left"
+              iconStyle={styles.iconMenu}
+            />
     </View>
   );
 };
@@ -58,21 +66,34 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   container: {
-    marginTop:45,
+    marginTop:33,
     backgroundColor: Colors.wet,
   },
-  containerDashboard:{
+  buttonMenu:{
+    width:380,
+    height:84,
+    marginTop:15,
     alignItems:'center',
-    color:Colors.white,
+    marginLeft:25,
+    marginBottom:1,
+    borderRadius:10,
     backgroundColor:Colors.white,
-    borderRadius:30,
+    justifyContent:'space-around',
     borderWidth:1,
     borderColor:Colors.darkBlue,
-    height: 200,
+  },
+  buttonBawah:{
     width:380,
-    marginLeft: 22,
+    height:84,
     marginTop:15,
-    marginBottom:5,
+    alignItems:'center',
+    marginLeft:25,
+    marginBottom:409,
+    borderRadius:10,
+    backgroundColor:Colors.white,
+    justifyContent:'space-around',
+    borderWidth:1,
+    borderColor:Colors.darkBlue,
   },
   buttonText:{
     fontSize:14,
@@ -103,20 +124,6 @@ const styles = StyleSheet.create({
     color: Colors.navy,
     marginRight: 150,
     marginTop:5,
-    marginBottom:5,
-  },
-  anntxt:{
-    fontSize:18,
-    fontWeight: 'normal',
-    color: Colors.black,
-    marginTop:20,
-    marginBottom:20,
-  },
-  announcementtxt:{
-    fontSize:18,
-    fontWeight: 'normal',
-    color: Colors.black,
-    marginTop:90,
     marginBottom:5,
   },
 });
