@@ -5,6 +5,7 @@ import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faShieldCat, faArrowLeft, faAddressCard, faShieldHalved, faBullhorn } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
+import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
 import { colors } from 'react-native-elements';
 
@@ -50,6 +51,7 @@ const PengumumanScreen = ({ navigation }) => {
       yaitu Sabtu, 20 Januari 2025 akan melaksanakan Gotong Royong s/d. Selesai. Dimohon untuk partisipasi nya. 
       Terima Kasih atas perhatian saudara-saudari. Wassalamualaikum. </Text>
       </View>
+      <Bottom/>
 
     </View>
   );

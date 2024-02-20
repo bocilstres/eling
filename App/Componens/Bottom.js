@@ -5,7 +5,7 @@ import Profile from '../../Pro';
 import Colors from '../Shared/Colors';
 
 const Bottom = ({ }) => {
-  const [selectedTab, setSelectedTab] = useState('home');
+  const [selectedTab, setSelectedTab] = useState(false);
 
   const handleProfile = (Profile) => {
     setSelectedTab(Profile); // Update selectedTab state when a tab is pressed
@@ -18,14 +18,15 @@ const Bottom = ({ }) => {
     <View style={styles.container}>
       <TouchableOpacity
         style={[styles.tabButton, selectedTab === 'Home' && styles.selectedTab]}
-        onPress={() => handleHome ('Home')}>
+        onPress={(selectedTab) => handleHome ('Home')}>
         <Icon name="home" size={24} color={selectedTab === 'Home' ? Colors.white : Colors.darkBlue} />
       </TouchableOpacity>
 
       <TouchableOpacity
         style={[styles.tabButton, selectedTab === 'Profile' && styles.selectedTab]}
-        onPress={() => handleProfile('Profile')}>
-        <Icon name="user" size={24} color={selectedTab === 'Profile' ? Colors.white : Colors.darkBlue} />
+        onPress={(selectedTab) => handleProfile('Profile')}>
+        <Icon name="user" size={24  
+        } color={selectedTab === 'Profile' ? Colors.white : Colors.darkBlue} />
       </TouchableOpacity>
     </View>
   );
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     height: 60,
     elevation: 8, // Efek bayangan
-    top:93,
+    top:50,
   },
   tabButton: {
     flex: 1,

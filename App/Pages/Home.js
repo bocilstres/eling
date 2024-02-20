@@ -19,6 +19,10 @@ const HomeScreen = ({ navigation }) => {
     console.log('Tombol Profile Di tekan');
     navigation.navigate('Profile');
   };
+  const handleHome = ()=> {
+    console.log('Tombol Home Di tekan');
+    navigation.navigate('Home');
+  };
   const handleData = ()=> {
     console.log('Tombol Data Warga Di tekan');
     navigation.navigate('Data');
@@ -41,7 +45,7 @@ const HomeScreen = ({ navigation }) => {
   };
   
 
-  return (
+   return (
     <View style={styles.container}>
       <AppHeader onLogoutPress={handleLogout} />
       <View style={styles.row}>
@@ -59,14 +63,15 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.Menu}>
           <View style={styles.Menurow}>
             <Button 
-          
               onPress={handleData}
               icon={<FontAwesomeIcon icon={faListAlt}  color={Colors.darkBlue} size={20} />} 
               buttonStyle= {styles.buttonMenu}
               titleStyle={styles.buttonText}
               iconPosition="top"
             />
-             <Text style={styles.textbutton}>Data Warga</Text>
+      
+            </View>
+             <View style={styles.Menurow}>
             <Button 
               onPress={handlePengumuman}
               icon={<FontAwesomeIcon icon={faBullhorn} color={Colors.darkBlue} size={20} />} 
@@ -74,6 +79,8 @@ const HomeScreen = ({ navigation }) => {
               titleStyle={styles.buttonText}
               iconPosition="top"
             />
+            </View>
+            <View style={styles.Menurow}>
              <Button 
               onPress={handleRonda}
               icon={<FontAwesomeIcon icon={faShieldHalved} color={Colors.darkBlue} size={20} />} 
@@ -81,9 +88,18 @@ const HomeScreen = ({ navigation }) => {
               titleStyle={styles.buttonText}
               iconPosition="top"
             />
-          
+            </View>
+            <View style={styles.Menurow}>
+            <Button 
+              onPress={handleProfile}
+              icon={<FontAwesomeIcon icon={faUser} color={Colors.darkBlue} size={20} />} 
+              buttonStyle= {styles.buttonMenu}
+              titleStyle={styles.buttonText}
+              iconPosition="top"
+            />
+
           </View>
-          <Bottom/>
+
         </View>
 
         <Modal
@@ -128,6 +144,13 @@ const styles = StyleSheet.create({
     marginTop:2,
     alignItems: 'center',
   },
+  textbutton:{
+    color:Colors.white,
+    fontSize:25,
+    marginBottom:7,
+    marginTop:80,
+    alignItems: 'center',
+  },
   modalButton: {
     flex: 1, 
     backgroundColor: 'white', 
@@ -151,13 +174,14 @@ const styles = StyleSheet.create({
   },
   buttonMenu:{
     margin:10,
-    width:90,
-    height:windowHeight * 0.1,
+    width:360,
+    height:50,
     borderRadius:50,
     backgroundColor: Colors.white,  
-  
     borderWidth:1,
     borderColor:Colors.darkBlue,
+    justifyContent:'space-around',
+    
   },
   Menu:{
     alignItems:'center',
@@ -165,11 +189,11 @@ const styles = StyleSheet.create({
   },
   Menurow:{
     flexDirection: 'row',
-    
+  
   },
   container: {
     marginTop:45,
-    backgroundColor:Colors.y,
+    backgroundColor:Colors.darkBlue,
     
   },
   row:{
@@ -193,8 +217,8 @@ const styles = StyleSheet.create({
     marginTop:57,
     left: 200,
   },
-  bg:{
-    
+  gtw:{
+    marginLeft:70,
   },
   textdarurat:{
     color:Colors.white, 
@@ -205,7 +229,8 @@ const styles = StyleSheet.create({
   textbutton:{
     color:Colors.darkBlue, 
     fontSize:15,
-    marginTop: 3, 
+    marginTop: 30, 
+    marginRight:90,
   },
   username:{
     fontSize:20,
@@ -225,7 +250,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     color:Colors.white,
     backgroundColor:Colors.wet, 
-    height: 491,
+    height: 550,
     borderTopLeftRadius:50,
     borderTopRightRadius:50,
   },

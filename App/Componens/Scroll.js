@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
 
 const Scroll = () => {
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const limit = 10; // Jumlah item per halaman
 
   useEffect(() => {
     fetchData();
@@ -14,18 +15,22 @@ const Scroll = () => {
     setIsLoading(true);
     // Simulasi pengambilan data dari sumber eksternal (misalnya, API)
     setTimeout(() => {
-      const newData = Array.from({ length: 10 }, (_, index) => ({
-        id: page * 10 + index,
-        text: `Item ${page * 10 + index + 1}`,
+      const newData = Array.from({ length: limit }, (_, index) => ({
+        id: page * limit + index,
+        text: `Item ${page * limit + index + 1}`,
       }));
       setData((prevData) => [...prevData, ...newData]);
-      setPage((prevPage) => prevPage + 1);
       setIsLoading(false);
+      setPage((prevPage) => prevPage + 1);
     }, 1000); // Waktu simulasi pengambilan data
   };
 
   const renderFooter = () => {
-    return isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : null;
+    return isLoading ? (
+      <View style={styles.footer}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    ) : null;
   };
 
   return (
@@ -49,12 +54,19 @@ const Scroll = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 22,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30,
   },
   item: {
-    padding: 10,
+    padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#cccccc',
+    borderBottomColor: '#ccc',
+  },
+  footer: {
+    paddingVertical: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
   },
 });
 

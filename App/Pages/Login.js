@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     textShadowColor: Colors.navy,
     textShadowRadius:1,
-    color: Colors.darkBlue
+    color: Colors.navy
   },
   textInfo:{
     fontSize:15,

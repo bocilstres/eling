@@ -1,10 +1,12 @@
 import React from 'react'; 
-import { StyleSheet } from 'react-native'; 
+import { StyleSheet, ScrollView, SafeAreaView } from 'react-native'; 
 import { DataTable } from 'react-native-paper'; 
 import Colors from '../Shared/Colors';
 
 const Table = () => { 
 return ( 
+	<SafeAreaView>
+		<ScrollView>
 	<DataTable style={styles.container}> 
 	<DataTable.Header style={styles.tableHeader}> 
 		<DataTable.Title style={styles.Title} >Hari</DataTable.Title> 
@@ -93,6 +95,8 @@ return (
 	</DataTable.Row> 
 
 	</DataTable> 
+	</ScrollView>
+	</SafeAreaView>
 ); 
 }; 
 

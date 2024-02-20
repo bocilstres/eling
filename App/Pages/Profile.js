@@ -5,6 +5,7 @@ import Modal from 'react-native-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faShieldCat, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import AppHeader from '../Componens/AppHeader';
+import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
 
 const ProfileScreen= ({ navigation }) => {
@@ -23,11 +24,19 @@ const ProfileScreen= ({ navigation }) => {
     <View style={styles.container}>
 
       <AppHeader onLogoutPress={handleLogout} />
+      <View style={styles.containerTitle}>
+        <TouchableOpacity onPress={toggleBack}>
+          <FontAwesomeIcon
+            icon={faArrowLeft}
+            size={24}
+            style={styles.BackIcon}
+            iconPosition="top"
+          />
+        </TouchableOpacity>
+        <Text style={styles.datatxt}> PROFILE </Text>
+      </View>
   
       <View style={styles.row}>
-      <TouchableOpacity onPress={toggleBack}>
-        <FontAwesomeIcon icon={faArrowLeft} size={24} style={styles.BackIcon} iconPosition="top"/>
-      </TouchableOpacity>
         <FontAwesomeIcon icon={faShieldCat} size={130} style={styles.profile}/>
       </View>
       <View style={styles.containerDashboard}>  
@@ -38,6 +47,7 @@ const ProfileScreen= ({ navigation }) => {
       <Text style={styles.NIK}>Nomor Telepon :</Text>
       <Text style={styles.bio}>08123456789</Text>
       </View>
+      <Bottom/>
 
     </View>
   );
@@ -49,6 +59,29 @@ const styles = StyleSheet.create({
     marginTop:40,
     backgroundColor: Colors.wet,
     
+  },
+  datatxt: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: Colors.navy,
+    marginRight: 180,
+    marginTop: 5,
+    marginBottom: 5,
+  },
+  BackIcon: {
+    color: Colors.navy,
+    marginTop: 5,
+    marginBottom: 5,
+    justifyContent: "flex-end",
+    marginLeft: 10,
+  },
+  containerTitle: {
+    alignItems: "center",
+    color: Colors.white,
+    backgroundColor: Colors.white,
+    flexDirection: "row",
+    marginBottom: 1,
+    justifyContent: "space-between",
   },
   profile:{
     marginTop:100,

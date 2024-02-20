@@ -8,6 +8,7 @@ import AppHeader from '../Componens/AppHeader';
 import Colors from '../Shared/Colors'
 import { colors } from 'react-native-elements';
 import Dropdown from '../Componens/Dropdown';
+import Bottom from '../Componens/Bottom';
 
 const DataScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -36,6 +37,7 @@ const DataScreen = ({ navigation }) => {
       <View style={styles.containerData}>
       <Dropdown options={['Megawati Soekarno Poetri', 'Ganjar Pranowo', 'Puan Maharani']} />
       </View>
+      <Bottom/>
     </View>
   );
 };
