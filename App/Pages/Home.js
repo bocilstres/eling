@@ -1,4 +1,4 @@
-import React , { useState }from 'react';
+import React , { useState, useEffect }from 'react';
 import { Button } from '@rneui/themed';
 import { View, Text, StyleSheet, Image,Dimensions,TouchableOpacity, bordercolor } from 'react-native';
 import Modal from 'react-native-modal';
@@ -7,14 +7,76 @@ import { faTriangleExclamation,faClipboardList, faListAlt, faBullhorn, faBell, f
 import AppHeader from '../Componens/AppHeader';
 import Bottom from '../Componens/Bottom';
 import Colors from '../Shared/Colors'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { logout, getUser } from '../Api/user';
 
 const HomeScreen = ({ navigation }) => {
   const [isModalVisible, setModalVisible] = useState(false);
-  const handleLogout = () => {
-    // Tambahkan logika logout sesuai kebutuhan Anda
-    console.log('Logout pressed');
-    navigation.navigate('Login');
+  const [data, setData] = useState(null);
+  const handleLogout = async () => {
+    try{
+      const AccessToken = await getTokenFromStorage();
+      console.log(AccessToken);
+      if(AccessToken) {
+        const logoutResult = await logout(AccessToken);
+        if(logoutResult.message === 'Logout successful'){
+          await AsyncStorage.removeItem("AccessToken");
+          navigation.navigate('Login');
+        }else{
+          console.error('Logout Gagal', logoutResult);
+        }
+      }else{
+        console.error('No token');
+      }
+    }catch(error){
+      console.error('Logout',error)
+    }
   };
+  const getTokenFromStorage = async () => {
+    try {
+      const accessToken = await AsyncStorage.getItem('AccessToken');
+      return accessToken;
+    } catch (error) {
+      console.error('Error getting token from AsyncStorage:', error);
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const API_URL = 'https://54bc-103-165-227-178.ngrok-free.app/usertoken';
+
+      try {
+        const token = await getTokenFromStorage();
+        // console.log(token);
+
+        // Sertakan token dalam parameter URL
+        const apiUrlWithToken = `${API_URL}?token=${token}`;
+
+        const response = await fetch(apiUrlWithToken, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const result = await response.json();
+        // console.log(result);
+        if (result && result.length > 0 && result[0].payload && result[0].payload.length > 0) {
+          const firstPayload = result[0].payload[0];
+          const firstPayloadUsername = firstPayload.username;
+    
+          const cleanedUsername = firstPayloadUsername.replace(/"/g, '');
+          setData(cleanedUsername);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleProfile = ()=> {
     console.log('Tombol Profile Di tekan');
     navigation.navigate('Profile');
@@ -50,7 +112,7 @@ const HomeScreen = ({ navigation }) => {
       <AppHeader onLogoutPress={handleLogout} />
       <View style={styles.row}>
       <Image style={styles.image} source={require('./../Assets/Images/hello.jpeg')}/>
-        <Text style={styles.username}>Hi Mega</Text>
+        <Text style={styles.username}>Hi {data ? data : 'Loading...'}</Text>
         <Text style={styles.subname}>Have a nice day.</Text>
       </View>
 

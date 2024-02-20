@@ -4,24 +4,25 @@ import { Card } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, StyleSheet, TextInput, Dimensions,Alert  } from 'react-native';
 import Colors from '../Shared/Colors';
+import { login } from '../Api/user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const MyForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
-
-  const handleLogin = () => {
-    console.log('Username:', username);
-    console.log('Password:', password);
-    navigation.navigate('Home');
-
-    if (username === 'user' && password === 'password') {
-      // Login berhasil, lakukan sesuatu di sini
-      Alert.alert('Login Berhasil', 'Selamat datang, ' + username);
-    } else {
-      // Login gagal, tampilkan pesan kesalahan
-      Alert.alert('Login Gagal', 'Username atau password salah');
+  const handleLogin = async () => {
+    try{
+      const result = await login({
+        username: username,
+        password: password
+      });
+      AsyncStorage.setItem("AccessToken", result.token).then(()=>{
+        navigation.navigate('Home');
+      })
+    }catch(error){
+      console.log(error);
     }
   };
 
